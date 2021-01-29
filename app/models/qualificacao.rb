@@ -1,4 +1,7 @@
 class Qualificacao < ApplicationRecord
+  belongs_to :cliente
+  belongs_to :restaurant
+
   attr_accessor :nota, :valor_gasto, :cliente_id, :restaurante_id
 
   validates_presence_of :nota, message: " - deve ser preenchido"
