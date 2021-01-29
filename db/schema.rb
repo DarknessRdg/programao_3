@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_143031) do
+ActiveRecord::Schema.define(version: 2021_01_29_145724) do
 
   create_table "clientes", force: :cascade do |t|
     t.string "nome", limit: 80
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2021_01_29_143031) do
     t.string "nome", limit: 80
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "qualificacoes", force: :cascade do |t|
+    t.integer "cliente_id"
+    t.integer "restaurante_id"
+    t.float "nota"
+    t.float "valor_gasto"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cliente_id"], name: "index_qualificacoes_on_cliente_id"
+    t.index ["restaurante_id"], name: "index_qualificacoes_on_restaurante_id"
   end
 
   create_table "receita", force: :cascade do |t|
