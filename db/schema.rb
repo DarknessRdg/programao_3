@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_135347) do
+ActiveRecord::Schema.define(version: 2021_01_29_142037) do
 
   create_table "clientes", force: :cascade do |t|
     t.string "nome", limit: 80
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 2021_01_29_135347) do
     t.string "nome"
     t.date "data_de_nascimento"
     t.float "altura"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pratos", force: :cascade do |t|
+    t.string "nome", limit: 80
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
