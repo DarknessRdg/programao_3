@@ -24,4 +24,7 @@ class RestaurantesController < ApplicationController
     redirect_to(action: "show", id: @restaurante)
   end
 
+  def edit
+    @restaurante = Restaurante.find params[:id]
+  end
 end
