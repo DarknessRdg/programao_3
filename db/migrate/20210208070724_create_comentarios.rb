@@ -7,5 +7,8 @@ class CreateComentarios < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
+    add_index :comentarios, :comentavel_type
+    add_index :comentarios, :comentavel_id
   end
 end
