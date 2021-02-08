@@ -13,6 +13,7 @@
       <th>Endereco</th>
       <th>Especialidade</th>
       <th>Mostrar</th>
+      <th>Deletar</th>
     </tr>
   </thead>
 
@@ -25,6 +26,9 @@
         <td><%= restaurante.especialidade %></td>
         <td>
           <%= link_to 'Mostrar', action: 'show', id: restaurante %>
+        </td>
+        <td>
+          <%= link_to 'Deletar', {action: 'destroy', id: restaurante},{method: "delete"} %>
         </td>
       </tr>
     <% end %>
