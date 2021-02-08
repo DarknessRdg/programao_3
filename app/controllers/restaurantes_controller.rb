@@ -1,4 +1,6 @@
 class RestaurantesController < ApplicationController
+  after_filter :avisa_termino
+
   def index
     @restaurantes = Restaurante.order :nome
   end
@@ -42,4 +44,9 @@ class RestaurantesController < ApplicationController
     @restaurante.update_attributes(params[:restaurante])
     redirect_to action: "show", id: @restaurante
   end
+
+  private
+    def avisa_termino
+        logger.info "Action #{params[:action]} terminada"
+    end
 end
