@@ -12,6 +12,7 @@
       <th>Nome</th>
       <th>Endereco</th>
       <th>Especialidade</th>
+      <th>Mostrar</th>
     </tr>
   </thead>
 
@@ -22,6 +23,9 @@
         <td><%= restaurante.nome %></td>
         <td><%= restaurante.endereco %></td>
         <td><%= restaurante.especialidade %></td>
+        <td>
+          <%= link_to 'Mostrar', action: 'show', id: restaurante %>
+        </td>
       </tr>
     <% end %>
   </tbody>
