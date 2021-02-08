@@ -5,3 +5,28 @@
   Estou no controller de Restaurantes!
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Nome</th>
+      <th>Endereco</th>
+      <th>Especialidade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurantes.each_with_index do |restaurante, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= restaurante.nome %></td>
+        <td><%= restaurante.endereco %></td>
+        <td><%= restaurante.especialidade %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Pessoa', new_pessoa_path %>
