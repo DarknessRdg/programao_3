@@ -20,7 +20,11 @@ class RestaurantesController < ApplicationController
   def create
     @restaurante = Restaurante.new(params[:restaurante])
 
-    @restaurante.save
+    if @restaurante.save
+      redirect_to action: "show", id: @restaurante
+    else
+      render action: "new"
+    end
     redirect_to(action: "show", id: @restaurante)
   end
 
