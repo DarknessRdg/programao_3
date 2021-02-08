@@ -12,11 +12,13 @@ class QualificacoesController < ApplicationController
 
   # GET /qualificacoes/new
   def new
+    preparar_form
     @qualificacao = Qualificacao.new
   end
 
   # GET /qualificacoes/1/edit
   def edit
+    preparar_form
   end
 
   # POST /qualificacoes or /qualificacoes.json
@@ -28,6 +30,7 @@ class QualificacoesController < ApplicationController
         format.html { redirect_to @qualificacao, notice: "Qualificacao was successfully created." }
         format.json { render :show, status: :created, location: @qualificacao }
       else
+        preparar_form
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @qualificacao.errors, status: :unprocessable_entity }
       end
@@ -41,6 +44,7 @@ class QualificacoesController < ApplicationController
         format.html { redirect_to @qualificacao, notice: "Qualificacao was successfully updated." }
         format.json { render :show, status: :ok, location: @qualificacao }
       else
+        preparar_form
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @qualificacao.errors, status: :unprocessable_entity }
       end
@@ -65,5 +69,10 @@ class QualificacoesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def qualificacao_params
       params.require(:qualificacao).permit(:cliente_id, :restaurante_id, :nota, :valor_gasto)
+    end
+
+    def preparar_form
+      @clientes = Cliente.order :nome
+      @restaurantes = Restaurante.order :nome
     end
 end
